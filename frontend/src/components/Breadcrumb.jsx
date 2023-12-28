@@ -2,8 +2,7 @@ import { Link } from "react-router-dom";
 const Breadcrumb = ({ e }) => {
   return (
     <>
-      {" "}
-      <li className="rtl:rotate-180">
+      <li className="animate-slideleft">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-4 w-4"
@@ -17,8 +16,9 @@ const Breadcrumb = ({ e }) => {
         </svg>
       </li>
       <li>
-        <Link to={e} className="block transition hover:text-gray-700">
-          {" "}
+        <Link
+          to={e}
+          className="block transition hover:text-gray-700 animate-slideleft">
           {e}
         </Link>
       </li>
