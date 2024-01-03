@@ -54,7 +54,7 @@ const products = [
   },
   {
     id: 4,
-    name: "Machined Mechanical Pencil",
+    name: "Machined Mechanical ",
     href: "#",
     price: "$35",
     imageSrc:

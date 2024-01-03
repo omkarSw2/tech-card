@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const MainFooter = () => {
   return (
     <footer className="bg-gradient-to-r from-gray-100 via-[#bce1ff] to-gray-100">
@@ -70,87 +72,85 @@ const MainFooter = () => {
             <div>
               <p className="font-medium">Company</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                <a className="hover:opacity-75" href="#">
+                <Link className="hover:opacity-75" to={"/about"}>
                   {" "}
                   About{" "}
-                </a>
-                <a className="hover:opacity-75" href="#">
+                </Link>
+                <Link className="hover:opacity-75" to={"/meet-the-team"}>
                   {" "}
                   Meet the Team{" "}
-                </a>
-                <a className="hover:opacity-75" href="#">
+                </Link>
+                <Link className="hover:opacity-75" to={"/history"}>
                   {" "}
                   History{" "}
-                </a>
-                <a className="hover:opacity-75" href="#">
+                </Link>
+                <Link className="hover:opacity-75" to={"/careers"}>
                   {" "}
                   Careers{" "}
-                </a>
+                </Link>
               </nav>
             </div>
             <div>
               <p className="font-medium">Services</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                <a className="hover:opacity-75" href="#">
+                <Link className="hover:opacity-75" to={"/products"}>
                   {" "}
-                  1on1 Coaching{" "}
-                </a>
-                <a className="hover:opacity-75" href="#">
+                  PVC NFC Cards{" "}
+                </Link>
+                <Link className="hover:opacity-75" to={"/products"}>
                   {" "}
-                  Company Review{" "}
-                </a>
-                <a className="hover:opacity-75" href="#">
+                  Metal NFC Cards{" "}
+                </Link>
+                <Link className="hover:opacity-75" to={"/products"}>
                   {" "}
-                  Accounts Review{" "}
-                </a>
-                <a className="hover:opacity-75" href="#">
-                  {" "}
-                  HR Consulting{" "}
-                </a>
-                <a className="hover:opacity-75" href="#">
-                  {" "}
-                  SEO Optimisation{" "}
-                </a>
+                  Combo&apos;s{" "}
+                </Link>
               </nav>
             </div>
             <div>
               <p className="font-medium">Helpful Links</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                <a className="hover:opacity-75" href="#">
+                <Link className="hover:opacity-75" to={"/contactus"}>
                   {" "}
                   Contact us{" "}
-                </a>
-                <a className="hover:opacity-75" href="#">
+                </Link>
+                <Link className="hover:opacity-75" to={"/faqs"}>
                   {" "}
-                  FAQs{" "}
-                </a>
+                  FAQ&apos;s{" "}
+                </Link>
+                <Link className="hover:opacity-75" to={"/howitworks"}>
+                  {" "}
+                  How It Work&apos;s{" "}
+                </Link>
               </nav>
             </div>
             <div>
               <p className="font-medium">Legal</p>
               <nav className="flex flex-col mt-4 space-y-2 text-sm text-gray-500">
-                <a className="hover:opacity-75" href="#">
+                <Link className="hover:opacity-75" to={"/privacy-policy"}>
                   {" "}
                   Privacy Policy{" "}
-                </a>
-                <a className="hover:opacity-75" href="#">
+                </Link>
+                <Link className="hover:opacity-75" to={"/terms-conditions"}>
                   {" "}
                   Terms &amp; Conditions{" "}
-                </a>
-                <a className="hover:opacity-75" href="#">
+                </Link>
+                <Link className="hover:opacity-75" to={"/refund-policy"}>
                   {" "}
                   Returns Policy{" "}
-                </a>
-                <a className="hover:opacity-75" href="#">
+                </Link>
+                <Link
+                  className="hover:opacity-75"
+                  to={"/shipping-delivery-policy"}>
                   {" "}
-                  Accessibility{" "}
-                </a>
+                  Shipping Policy{" "}
+                </Link>
               </nav>
             </div>
           </div>
         </div>
         <p className="mt-8 text-xs text-gray-800">
-          © 2022 Techcardz. All rights reserved
+          © 2024 Techcardz. All rights reserved
         </p>
       </div>
     </footer>

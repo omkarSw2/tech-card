@@ -1,20 +1,8 @@
-// <!-- component -->
-// {
-//    <style>
-//   .login_img_section {
-//   background: linear-gradient(rgba(2,2,2,.7),rgba(0,0,0,.7)),url(https://images.unsplash.com/photo-1650825556125-060e52d40bd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80) center center;
-// }
-// </style>
-// }
-
 const LoginPage = () => {
   return (
     <div className="h-screen flex">
       <div className="hidden lg:flex w-full object-noner lg:w-1/2">
-        <img
-          src="https://images.unsplash.com/photo-1650825556125-060e52d40bd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-          alt=""
-        />
+        <img src="https://placehold.co/1024x1024?text=Card+image" alt="" />
       </div>
       <div className="flex w-full lg:w-1/2 justify-center items-center bg-white space-y-8">
         <div className="w-full px-8 md:px-32 lg:px-24">
@@ -69,7 +57,7 @@ const LoginPage = () => {
             </div>
             <button
               type="submit"
-              className="block w-full bg-indigo-600 mt-5 py-2 rounded-2xl hover:bg-indigo-700 hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">
+              className="block w-full bg-indigo-600 mt-5 py-2 rounded-2xl hover:bg-indigo-700 lg:hover:-translate-y-1 transition-all duration-500 text-white font-semibold mb-2">
               Login
             </button>
             <div className="flex justify-between mt-4">
