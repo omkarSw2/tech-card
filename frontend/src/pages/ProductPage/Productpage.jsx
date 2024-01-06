@@ -1,19 +1,20 @@
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Menu, Transition } from "@headlessui/react";
 
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { Switch, FormControl, FormLabel } from "@chakra-ui/react";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import { useSearchParams } from "react-router-dom";
 const sortOptions = [
-  { name: "Most Popular", href: "#", current: true },
-  { name: "Best Rating", href: "#", current: false },
-  { name: "Newest", href: "#", current: false },
+  { name: "Most Popular", current: "mostpopular" },
+  { name: "Best Rating", current: "bestrating" },
+  { name: "Newest", current: "newest" },
 ];
 const CategoryOptions = [
-  { name: "All", href: "#", current: true },
-  { name: "PVC", href: "#", current: false },
-  { name: "Metal", href: "#", current: false },
-  { name: "Combo", href: "#", current: false },
+  { name: "All", href: "#", current: "" },
+  { name: "PVC", href: "#", current: "pvc" },
+  { name: "Metal", href: "#", current: "metal" },
+  { name: "Combo", href: "#", current: "combo" },
 ];
 const products = [
   {
@@ -72,12 +73,32 @@ function classNames(...classes) {
 }
 
 export default function Productpage() {
+  const [searchparams, setSearchParams] = useSearchParams();
+  const categorys = searchparams.get("categories");
+  const sorts = searchparams.get("sort");
+  const [category, setCategory] = useState(categorys || "");
+  const [sort, setSort] = useState(sorts || "");
+  console.log(category, sort);
+  const [isChecked, setIsChecked] = useState(false);
+
+  // Function to handle switch toggle
+  const handleSwitchToggle = () => {
+    setIsChecked(!isChecked);
+  };
+  useEffect(() => {
+    let params = {};
+    if (category.length) params.categories = category;
+    if (sort.length) params.sort = sort;
+    if (isChecked) params.availability = 1;
+    setSearchParams(params);
+  }, [category, sort, isChecked]);
+
   return (
     <div className="bg-white">
       <div>
         <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-5">
-            <h1 className=" text-2xl lg:text-4xl font-bold tracking-tight text-gray-900">
+            <h1 className=" hidden sm:block text-2xl  lg:text-4xl  font-bold tracking-tight text-gray-900">
               Products
             </h1>
 
@@ -107,17 +128,19 @@ export default function Productpage() {
                       {CategoryOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
-                            <a
-                              href={option.href}
+                            <button
+                              onClick={() => {
+                                setCategory(option.current);
+                              }}
                               className={classNames(
-                                option.current
+                                category == option.current
                                   ? "font-medium text-gray-900"
                                   : "text-gray-500",
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm"
+                                "block px-4 py-2 text-sm w-full"
                               )}>
                               {option.name}
-                            </a>
+                            </button>
                           )}
                         </Menu.Item>
                       ))}
@@ -152,17 +175,19 @@ export default function Productpage() {
                       {sortOptions.map((option) => (
                         <Menu.Item key={option.name}>
                           {({ active }) => (
-                            <a
-                              href={option.href}
+                            <button
+                              onClick={() => {
+                                setSort(option.current);
+                              }}
                               className={classNames(
-                                option.current
+                                sort == option.current
                                   ? "font-medium text-gray-900"
                                   : "text-gray-500",
                                 active ? "bg-gray-100" : "",
-                                "block px-4 py-2 text-sm"
+                                "block px-4 py-2 text-sm w-full"
                               )}>
                               {option.name}
-                            </a>
+                            </button>
                           )}
                         </Menu.Item>
                       ))}
@@ -175,7 +200,11 @@ export default function Productpage() {
                 <FormLabel htmlFor="email-alerts" mb="0" size={"xs"}>
                   In Stock
                 </FormLabel>
-                <Switch id="email-alerts" size={"sm"} />
+                <Switch
+                  isChecked={isChecked}
+                  onChange={handleSwitchToggle}
+                  size={"sm"}
+                />
               </FormControl>
             </div>
           </div>
